@@ -268,7 +268,8 @@ outputs of the CLI and Build Tool.
 
 In the ``check_availability`` operation, let's create a temporary password if
 an email address is available. We'll just add a few lines to our script to
-randomly generate a short password if the address is available. In the
+randomly generate a short password if the address is available. We'll use a
+``string`` function for this, so we'll need to add ``import string`` to our script. In the
 ``outputs`` section, we'll mark that password as ``sensitive``. Notice,
 that when we add a ``sensitive`` property to an output we have to add a
 ``value`` property as well.
@@ -278,6 +279,7 @@ that when we add a ``sensitive`` property to an output we have to add a
     python_action:
       script: |
         import random
+        import string
         rand = random.randint(0, 2)
         vacant = rand != 0
         # print vacant
